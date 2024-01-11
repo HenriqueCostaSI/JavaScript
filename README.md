@@ -1,2 +1,2 @@
 # JavaScript
-Aulas de JavaScript
+Aulas de JavaScript Udemy
