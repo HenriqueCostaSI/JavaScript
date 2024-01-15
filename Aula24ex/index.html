@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt-bt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicios Aula 24</title>
+</head>
+<body>
+    <script>
+        const nome = prompt("Digite seu nome");
+        document.body.innerHTML += ` O seu nome é ${nome}<br />`;
+        document.body.innerHTML += ` O seu nome tem <strong> ${nome.length}</strong>letras<br />`;
+        document.body.innerHTML += ` A segunda letra do seu nome é ${nome[1]}<br />`;
+        document.body.innerHTML += ` Qual o primeiro índice da letra a no seu nome é ${nome.indexOf('a')}<br />`;
+        document.body.innerHTML += ` As ultimas palavras 3 palavras do seu nome é ${nome.slice(-3)}<br />`;
+    </script>
+</body>
+</html>
