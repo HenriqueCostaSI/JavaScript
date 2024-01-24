@@ -40,7 +40,7 @@ function meuFormulario() {
 
   function adicionaPessoa(pessoa) {
     pessoas.push(pessoa);
-    return pessoa;
+    
   }
 
   /*form.onsubmit = function(event) {
