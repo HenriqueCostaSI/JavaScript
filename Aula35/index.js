@@ -23,3 +23,8 @@ Operadores lógicos
  || (or) ou
 ! (not) negação
 */
+
+//EM UMA EXPRESSÃO O (&& X1 && X2 )RETORNARÁ O X FALSO -> 0 FALSE NULL NAN UNDEFINED ""
+
+
+//EM UMA EXPRESSÃO O (&& X1 && X2 )RETORNARÁ O X VERDADEIRO 
