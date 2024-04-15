@@ -12,8 +12,8 @@
     <section class="container">
       <h1>Tabela IMC</h1>
       <div class="flex-container">
-        <h3>IMC</h3>
-        <h3>Resultados</h3>
+        <h2>IMC</h2>
+        <h2>Resultados</h2>
       </div>
       
       <div class="flex-container">
@@ -36,16 +36,20 @@
         </p>
       </div>
 
-      <form action="">
-        <label for="input-teste-1">Label Teste #1</label>
-        <input type="text" name="" id="input-teste-1" />
+      <h2 class="flex-content">Calcule seu IMC</h2>
 
-        <label for="input-teste-2">Label Teste #2</label>
-        <input type="password" id="input-teste-2" />
+      <form action="" id="formulario"  method="post">
+        <label for="peso">Peso</label>
+        <input type="text" name="peso" id="peso" />
+
+        <label for="altura">Altura</label>
+        <input type="text" name="altura" id="altura"/>
 
         
-        <button type="submit" class="btn">Submit</button>
+        <button type="submit" class="btn">Enviar</button>
       </form>
+
+      <div id="resultado"></div>
     </section>
 
     <script src="./assets/js/main.js"></script>

@@ -75,3 +75,13 @@ form button:hover {
 form button:active {
   background-color: blue;
 }
+
+.paragrafo-resultado {
+  background: #81f475;
+  padding: 10px 20px;
+}
+
+.bad {
+  background:red;
+  padding: 10px 20px;
+}
