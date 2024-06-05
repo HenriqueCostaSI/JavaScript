@@ -16,3 +16,4 @@ if (verdadeira) {
         console.log(nome, nome);
     }
 }
+
