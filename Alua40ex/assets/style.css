@@ -1,0 +1,15 @@
+body {
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1em;
+  }
+  
+  h1 {
+    background-color: white;
+    padding: 20px;
+    border-radius: 0.5em;
+    
+  }
+  
