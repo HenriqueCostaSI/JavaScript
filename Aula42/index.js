@@ -1,10 +1,10 @@
 
 // ATRIBUIÇÃO VIA DESESTRUTURAÇÃO
 
-const numeros = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+const number = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
 
 //const [primeiroNumero, segundoNumero, ...rest] = numeros;
-const [ um, , tres, ,cinco, ,sete ] = numeros;
+const [ um, , tres, ,cinco, ,sete ] = number;
 
 console.log(um, tres);
 
