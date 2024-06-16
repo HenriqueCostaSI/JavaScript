@@ -68,4 +68,5 @@ function criaCalculadora() {
 
     };
 } 
-criaCalculadora().inicia();
+const calculadora = criaCalculadora();
+calculadora.inicia();
