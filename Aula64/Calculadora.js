@@ -11,7 +11,7 @@ function Calculadora() {
     this.pressionaEnter = function() {
         this.display.addEventListener('keyup', (e) => {
             if (e.keyCode === 13) {
-                this.realizaCalculo();
+                this.realizaCalculo(); 
             }
         });
     };
@@ -41,8 +41,8 @@ function Calculadora() {
     };
 
     this.cliqueBotoes = function() {
-        document.addEventListener('click', (e) => {
-            const el = e.target;
+        document.addEventListener('click', (event) => {
+            const el = event.target;
             if (el.classList.contains('btn-num')) {
                 this.btnParaDisplay(el.innerText);
             }
