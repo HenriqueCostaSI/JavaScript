@@ -55,7 +55,9 @@ ValidaCPF.prototype.criaDigito = function (cpfParcial) {
     return ac;
   }, 0);
 
+  //const digito = (11 - (total % 11)) % 11;
   const digito = 11 - (total % 11);
+  console.log(total);
   return digito > 9 ? "0" : String(digito);
 };
 
@@ -64,7 +66,7 @@ ValidaCPF.prototype.isSequencia = function () {
   return sequencia === this.cpfLimpo;
 };
 
-const cpf = new ValidaCPF("070.987.720-03");
+const cpf = new ValidaCPF("464.359.468-03");
 
 if (cpf.valida()) {
   console.log("Cpf válido");
