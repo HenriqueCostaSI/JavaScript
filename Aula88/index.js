@@ -18,7 +18,7 @@ class ControleRemoto {
     this.volume -= 2;
   }
 
-  //Método estático
+  //Método estático, não precisa de instancia mas nao acessa os dados
   static get volumeMáximo() {
     return 100;
   }
