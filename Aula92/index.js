@@ -13,8 +13,9 @@ function esperar(msg, tempo){
                 return;
             }
             resolve(msg.toUpercase() + '!');
+            return;
         }, tempo);
-        return;
+       
     });
 }
 
