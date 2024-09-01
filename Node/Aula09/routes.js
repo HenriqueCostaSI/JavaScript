@@ -4,3 +4,6 @@ const homecontroller = require('./controllers/homeController');
 
 
 route.get('/', homecontroller.paginaInicial);
+
+
+module.exports = route;
