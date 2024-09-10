@@ -1,7 +1,8 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-mongoose.connect()
+const connectionString = 'mongodb+srv://henrimatheu:bKX2i6P6t7mErOMW@cursojs.q3cxx.mongodb.net/BASE?retryWrites=true&w=majority&appName=CursoJs';	
+mongoose.connect(connectionString);
 
 const routes = require('./routes');
 const path = require('path');
