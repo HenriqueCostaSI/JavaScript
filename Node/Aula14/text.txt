@@ -1,1 +1,1 @@
-mongodb+srv://henrimatheu:<db_password>@cursojs.q3cxx.mongodb.net/?retryWrites=true&w=majority&appName=CursoJs
+mongodb+srv://henrimatheu:<204842>@cursojs.q3cxx.mongodb.net/?retryWrites=true&w=majority&appName=CursoJs
