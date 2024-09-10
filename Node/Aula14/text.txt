@@ -1,2 +1,3 @@
 mongodb+srv://henrimatheu:<204842>@cursojs.q3cxx.mongodb.net/?retryWrites=true&w=majority&appName=CursoJs
 bKX2i6P6t7mErOMW
+mongodb+srv://henrimatheu:bKX2i6P6t7mErOMW@cursojs.q3cxx.mongodb.net/?retryWrites=true&w=majority&appName=CursoJs
