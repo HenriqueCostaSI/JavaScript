@@ -1,3 +1,3 @@
-exports.PaginaInicial = (req, res) => {
+exports.aginaInicial = (req, res) => {
     res.send('Obrigado por entrar em contato.');
 };
