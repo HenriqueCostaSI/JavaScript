@@ -1,5 +1,7 @@
-module.exports = (req, res, next) => {
-    console.log('Passei no seu middleware');
-    console.log();
+exports.middlewareGlobal = (req, res, next) => {
     next();
-};
+  };
+  
+  exports.outroMiddleware = (req, res, next) => {
+    next();
+  };
