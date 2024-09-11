@@ -1,16 +1,18 @@
-exports.middlewareGlobal = (req, res, next) => {
-    if (req.body.cliente) {
-  
-      console.log();
-  
-      console.log(`Vi que você postou ${req.body.cliente}`);
-  
-      console.log();
-  
-    }
-    next();
-  };
-  
-  exports.outroMiddleware = (req, res, next) => {
-    next();
-  };
+const HomeModel = require('../models/HomeModel');
+
+HomeModel.create({
+  titulo: 'Um titulo de teste',
+  descricao: 'Uma descrição',
+})
+  .then(dados => console.log(dados))
+  .catch(e => console.log(e));
+
+exports.paginaInicial = (req, res) => {
+  res.render('index');
+  return;
+};
+
+exports.trataPost = (req, res) => {
+  res.send(req.body);
+  return;
+};

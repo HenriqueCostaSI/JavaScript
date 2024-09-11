@@ -1,8 +1,14 @@
+require('dotenv').config();
+
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-const connectionString = 'mongodb+srv://henrimatheu:bKX2i6P6t7mErOMW@cursojs.q3cxx.mongodb.net/BASE?retryWrites=true&w=majority&appName=CursoJs';	
-mongoose.connect(connectionString);
+
+mongoose.connect(process.env.CONNECTIONSTRING, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => {
+    app.emit('pronto');
+  })
+  .catch(e => console.log(e));
 
 const routes = require('./routes');
 const path = require('path');
@@ -19,7 +25,9 @@ app.set('view engine', 'ejs');
 app.use(middlewareGlobal);
 app.use(routes);
 
-app.listen(3000, () => {
-  console.log('Acessar http://localhost:3000');
-  console.log('Servidor executando na porta 3000');
+app.on('pronto', () => {
+  app.listen(3000, () => {
+    console.log('Acessar http://localhost:3000');
+    console.log('Servidor executando na porta 3000');
+  });
 });
