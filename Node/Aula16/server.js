@@ -12,7 +12,7 @@ mongoose.connect(process.env.CONNECTIONSTRING, { useNewUrlParser: true, useUnifi
   .catch(e => console.log(e));
 
 const session = require('express-session');// pacote express-session
-const MongoStore = require('connect-mongo')(session);//
+const MongoStore = require('connect-mongo');
 const flash = require('connect-flash');
 
 
@@ -26,7 +26,7 @@ app.use(express.static(path.resolve(__dirname, 'public')));
 
 const sessionOptions = session({
   secret: "teste",
-  store: new MongoStore({ mongooseConnection: mongoose.connection }),
+  store: MongoStore.create({ mongoUrl: process.env.CONNECTIONSTRING }),
   resave: false,
   saveUninitialized: false,
   cookie: {
