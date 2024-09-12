@@ -1,3 +1,4 @@
+//npm i express-session connect-mongo connect-flash
 require('dotenv').config();
 
 const express = require('express');
@@ -10,6 +11,11 @@ mongoose.connect(process.env.CONNECTIONSTRING, { useNewUrlParser: true, useUnifi
   })
   .catch(e => console.log(e));
 
+const session = require('express-session');// pacote express-session
+const MongoStore = require('connect-mongo')(session);//
+const flash = require('connect-flash');
+
+
 const routes = require('./routes');
 const path = require('path');
 const { middlewareGlobal } = require('./src/middlewares/middleware');
@@ -17,6 +23,20 @@ const { middlewareGlobal } = require('./src/middlewares/middleware');
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(path.resolve(__dirname, 'public')));
+
+const sessionOptions = session({
+  secret: "teste",
+  store: new MongoStore({ mongooseConnection: mongoose.connection }),
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    maxAge: 1000 * 60 * 60 * 24 * 7,// o tempo de vida do cookie(ms)
+    httpOnly: true
+  }
+});
+
+app.use(sessionOptions);
+app.use(flash());
 
 app.set('views', path.resolve(__dirname, 'src', 'views'));
 app.set('view engine', 'ejs');
