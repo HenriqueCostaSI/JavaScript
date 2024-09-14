@@ -13,7 +13,7 @@ const flash = require('connect-flash');
 const routes = require('./routes');
 const path = require('path');
 const helmet = require('helmet');
-const csurf = require('csurf');
+const csrf = require('csurf');
 const { middlewareGlobal, checkCsrfError, csrfMiddleware } = require('./src/middlewares/middleware');
 
 app.use(helmet());
