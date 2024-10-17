@@ -77,5 +77,30 @@ function menorNumero(array){
     return menor;
 }
 
+function maiorNumero(array){
+    let resultado = array[0];
+    
+    
+    for(let i = 0; i < array.length; i++){
+        if(array[i] > resultado){
+            resultado = array[i];
+        }
+    }
+    const indiceMaior = array.indexOf(resultado);
+    //novoArray = array.filter((item) => item !== resultado) ;
+
+    array.splice(indiceMaior, 1);
+
+    //novoArray 
+
+    for(let i = 0; i < array.length; i++){
+        if(array[i] > resultado){
+            segundo = array[i];
+        }
+    }
+    return segundo;
+}
+    
+
 
 console.log(receberSomenteOsParesDeIndicesPares([10, 70, 22, 43]));
