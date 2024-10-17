@@ -43,7 +43,7 @@ class Login {
     for (const key in this.body) {
       //Garantir que os campos não estejam vazios
       if (typeof this.body[key] !== "string") {
-        this.body[key] = "";
+        this.body[key] = '';
       }
     }
 
