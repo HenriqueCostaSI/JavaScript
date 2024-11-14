@@ -16,8 +16,8 @@ class Login {
   }
 
   async register() {
-    this.valida();
-    if (this.errors.length > 0) return;
+    this.valida();//validação
+    if (this.errors.length > 0) return;//se tiver erros, não vai continuar
     try {
       this.user = await LoginModel.create(this.body);
     } catch (e) {
@@ -26,7 +26,7 @@ class Login {
   }
 
   valida() {
-    this.cleanUp();
+    this.cleanUp();//limpa os campos
 
     // Validação
     // O e-mail precisa ser válido
@@ -54,4 +54,4 @@ class Login {
   }
 }
 
-module.exports = Login;
+module.exports = Login;//exportando a classe
