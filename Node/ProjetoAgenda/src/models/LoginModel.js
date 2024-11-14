@@ -30,7 +30,7 @@ class Login {
 
     // Validação
     // O e-mail precisa ser válido
-    if (!validator.isEmail(this.body.email))
+    if (!validator.isEmail(this.body.email))//npm i validator
       this.errors.push("E-mail inválido");
 
     // A senha precisa ter entre 3 e 50

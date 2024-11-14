@@ -10,21 +10,28 @@
       <h1 class="text-center">Agenda</h1>
       <p class="text-center lead">Seus contatos estão abaixo</p>
       
-      <div class="row">
-        <div class="col">
-          <div class="alert alert-danger">Um erro qualquer</div>
-        </div>
-      </div>
+      <%- include('includes/messages') %> 
 
       <div class="responsive-table">
         <table class="table my-3">
-          <tr>
-            <td>Luiz</td>
-            <td>Matheus</td>
-            <td>2343252534234</td>
-            <td>luiz%SADF@</td>
-          </tr>
           
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Sobrenome</th>
+              <th>Telefone</th>
+              <th>Email</th>
+            </tr>
+          </thead>
+          
+          <tbody>
+            <tr>
+              <td>Luiz</td>
+              <td>Teste</td>
+              <td>(00)0000-0000</td>
+              <td>luiz@email.com</td>
+            </tr>
+          </tbody>
         </table>
       </div>
     </div>
