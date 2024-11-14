@@ -1,28 +1,59 @@
-const Login = require("../models/LoginModel");
+const Login = require('../models/LoginModel');
 
 exports.index = (req, res) => {
-  res.render("login");
+  
+  if(req.session.user) return res.render('login-logado');//se o usuário está logado, não vai renderizar a página de login
+  return res.render('login');//
 };
 
-exports.register = async function (req, res) {
+exports.register = async function(req, res) {
   try {
-    const login = new Login(req.body);
-    await login.register();
+    const login = new Login(req.body);// cria um novo objeto da classe Login
+    await login.register();//chama o método register
 
-    if (login.errors.length > 0) {
-      req.flash("errors", login.errors);
-      req.session.save(function () {
-        return res.redirect("/login/index");
+    if(login.errors.length > 0) {
+      req.flash('errors', login.errors);
+      req.session.save(function() {
+        return res.redirect('back');
       });
       return;
     }
 
-    req.flash("success", "Seu usuário foi criado com sucesso.");
-    req.session.save(function () {
-      return res.redirect("/login/index");
+    req.flash('success', 'Seu usuário foi criado com sucesso.');
+    req.session.save(function() {
+      return res.redirect('back');//
     });
-  } catch (e) {
+  } catch(e) {
     console.log(e);
-    return res.render("404");
+    return res.render('404');
   }
+};
+
+exports.login = async function(req, res) {
+  try {
+    const login = new Login(req.body);// cria um novo objeto da classe Login
+    await login.login();//chama o método login
+
+    if(login.errors.length > 0) {
+      req.flash('errors', login.errors);
+      req.session.save(function() {
+        return res.redirect('back');
+      });
+      return;
+    }
+
+    req.flash('success', 'Você entrou no sistema.');
+    req.session.user = login.user;
+    req.session.save(function() {
+      return res.redirect('back');
+    });
+  } catch(e) {
+    console.log(e);
+    return res.render('404');
+  }
+};
+
+exports.logout = function(req, res) {
+  req.session.destroy();//destroi a sessão
+  res.redirect('/');
 };

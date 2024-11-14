@@ -1,6 +1,7 @@
 exports.middlewareGlobal = (req, res, next) => {
   res.locals.errors = req.flash('errors');//local é uma variável de escopo global
   res.locals.success = req.flash('success');
+  res.locals.user = req.session.user;
   next();
 };
 
