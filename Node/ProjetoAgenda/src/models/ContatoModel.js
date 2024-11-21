@@ -72,8 +72,8 @@ Contato.buscaContatos = async function() {
 
 Contato.delete = async function(id) {
   if(typeof id !== 'string') return;
-  const contato = await ContatoModel.findOneAndDelete({_id: id});
-  return contato;
+  const contato = await ContatoModel.findOneAndDelete({_id: id});//findOneAndDelete é um método do mongoose que deleta um registro
+  return contato;//retorna o registro deletado
 };
 
 
