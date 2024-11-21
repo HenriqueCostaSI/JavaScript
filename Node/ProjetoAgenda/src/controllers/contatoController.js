@@ -1,4 +1,8 @@
 exports.index = (req, res) => {
-  res.send('Bem vindo a pagina de contato');
+  res.send('contato');
   
+};
+
+exports.register = (req, res) => {
+  res.send('oi');
 };
