@@ -6,7 +6,7 @@ const ContatoSchema = new mongoose.Schema({
   sobrenome: { type: String, required: false, default: '' },
   email: { type: String, required: false, default: '' },
   telefone: { type: String, required: false, default: '' },
-  criadoEm: { type: Date, default: Date.now },
+  criadoEm: { type: Date, default: Date.now },//data de criação
 });
 
 const ContatoModel = mongoose.model('Contato', ContatoSchema);
