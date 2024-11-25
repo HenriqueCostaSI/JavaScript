@@ -42,7 +42,7 @@ class Login {
     //verifica se o usuário existe
      await this.userExists();
 
-    const salt = bcryptjs.genSaltSync();//
+    const salt = bcryptjs.genSaltSync();// gera um salt que vai ser usado para criptografar a senha
     this.body.password = bcryptjs.hashSync(this.body.password, salt);//
 
   
