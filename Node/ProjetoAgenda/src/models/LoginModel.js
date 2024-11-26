@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const validator = require("validator");
-const bcryptjs = require("bcryptjs");//npm i bcryptjs
+const bcryptjs = require("bcryptjs"); //npm i bcryptjs
 
 const LoginSchema = new mongoose.Schema({
   email: { type: String, required: true },
@@ -17,8 +17,8 @@ class Login {
   }
 
   async login() {
-    this.valida();//validação
-    
+    this.valida(); //validação
+
     if (this.errors.length > 0) return;
 
     this.user = await LoginModel.findOne({ email: this.body.email });
@@ -26,43 +26,41 @@ class Login {
     if (!this.user) {
       this.errors.push("Usuário não existe.");
       return;
-    }//verifica se o usuário existe
+    } //verifica se o usuário existe
 
-    if (!bcryptjs.compareSync(this.body.password, this.user.password)) {//verifica se a senha está correta
+    if (!bcryptjs.compareSync(this.body.password, this.user.password)) {
+      //verifica se a senha está correta
       this.errors.push("Senha inválida.");
-      this.user = null;//garantir que o usuário não vai ficar salvo na memória
+      this.user = null; //garantir que o usuário não vai ficar salvo na memória
       return;
     }
   }
 
   async register() {
-    this.valida();//validação
-    if (this.errors.length > 0) return;//se tiver erros, não vai continuar
-    
+    this.valida(); //validação
+    if (this.errors.length > 0) return; //se tiver erros, não vai continuar
+
     //verifica se o usuário existe
-     await this.userExists();
+    await this.userExists();
 
-    const salt = bcryptjs.genSaltSync();// gera um salt que vai ser usado para criptografar a senha
-    this.body.password = bcryptjs.hashSync(this.body.password, salt);//
+    const salt = bcryptjs.genSaltSync(); // gera um salt que vai ser usado para criptografar a senha
+    this.body.password = bcryptjs.hashSync(this.body.password, salt); //
 
-  
-      
     this.user = await LoginModel.create(this.body);
-    
   }
 
   async userExists() {
-    this.user = await LoginModel.findOne({ email: this.body.email });//envia um objeto com o email
+    this.user = await LoginModel.findOne({ email: this.body.email }); //envia um objeto com o email
     if (this.user) this.errors.push("Usuário já existe.");
-    
   }
 
   valida() {
-    this.cleanUp();//limpa os campos
+    this.cleanUp(); //limpa os campos
 
     // Validação
     // O e-mail precisa ser válido
-    if (!validator.isEmail(this.body.email))//npm i validator
+    if (!validator.isEmail(this.body.email))
+      //npm i validator
       this.errors.push("E-mail inválido");
 
     // A senha precisa ter entre 3 e 50
@@ -75,7 +73,7 @@ class Login {
     for (const key in this.body) {
       //Garantir que os campos não estejam vazios
       if (typeof this.body[key] !== "string") {
-        this.body[key] = '';
+        this.body[key] = "";
       }
     }
 
@@ -86,4 +84,4 @@ class Login {
   }
 }
 
-module.exports = Login;//exportando a classe
+module.exports = Login; //exportando a classe
