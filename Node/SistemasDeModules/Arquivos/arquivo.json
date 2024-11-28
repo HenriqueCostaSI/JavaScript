@@ -1,0 +1,9 @@
+{
+    "pessoa": {
+        "nome": "João",
+        "idade": 20,
+        "empresa": "Rocketseat",
+        "profissao": "Desenvolvedor",
+        "hobbies": ["Correr", "Jogar", "Estudar"]
+    }
+}
