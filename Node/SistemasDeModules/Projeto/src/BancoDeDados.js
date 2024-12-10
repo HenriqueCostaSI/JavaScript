@@ -15,6 +15,15 @@ function salvarProduto(produto) {
     produtos[produto.id] = { ...produto }; // Garante que o objeto original não seja modificado
     return { ...produto }; // Retorna uma cópia do produto
 }
+
+app.put('/produtos/:id', (req, res, next) => {
+    const produto = salvarProduto({
+        id: req.params.id,
+        nome: req.body.nome,
+        preco: req.body.preco
+    });
+    res.send(produto);
+});
 function getProduto(id) {
     return produtos[id] || {}
 }
