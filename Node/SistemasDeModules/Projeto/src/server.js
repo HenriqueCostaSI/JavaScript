@@ -22,6 +22,11 @@ app.post('/produtos', (req, res, next) => {
     });
     res.send(produto); // JSON
 });
+
+app.delete('/produtos/:id', (req, res, next) => {
+    const produto = bancoDeDados.excluirProduto(req.params.id);
+    res.send(produto); // JSON
+});
 /* 
 app.use('/', (req, res, next) => {
     res.send({ nome: 'Servidor rodando' });
