@@ -41,6 +41,66 @@ return resultado;
 
 function checarAnoBissexto(ano){
     return ano % 400 === 0 || (ano % 4 === 0 && ano % 100 !== 0);
+};
+
+
+somarNumeros(array){
+    let resultado = [];
+    array.forEach(x => resultado = resultado + x);
+    return resultado;
+};
+
+despesasTotais(despesas){
+    let resultado = 0;
+    despesas.preco.forEach(x => resultado += x);
+    return `R$ ${resultado.toFixed(2)}`;
+};
+
+despesasTotais(despesas){
+    let resultado = 0;
+    despesas.reduce((resultado, despesa) => resultado + despesa.preco, 0);
+};
+
+function calcularMedia(array){
+    let resultado = 0;
+    array.forEach(x => resultado += x);
+    return resultado / array.length;
 }
+
+function menorNumero(array){
+    let menor = array[0];
+    for(let i = 0; i < array.length; i++){
+        if(array[i] < menor){
+            menor = array[i];
+        }
+    }
+    return menor;
+}
+
+function maiorNumero(array){
+    let resultado = array[0];
+    
+    
+    for(let i = 0; i < array.length; i++){
+        if(array[i] > resultado){
+            resultado = array[i];
+        }
+    }
+    const indiceMaior = array.indexOf(resultado);
+    //novoArray = array.filter((item) => item !== resultado) ;
+
+    array.splice(indiceMaior, 1);
+
+    //novoArray 
+
+    for(let i = 0; i < array.length; i++){
+        if(array[i] > resultado){
+            segundo = array[i];
+        }
+    }
+    return segundo;
+}
+    
+
 
 console.log(receberSomenteOsParesDeIndicesPares([10, 70, 22, 43]));
