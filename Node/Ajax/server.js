@@ -39,7 +39,20 @@ app.post('/formulario', (req, res) => {
         ...req.body,
         id: 1
     });
+
+
 });
+
+app.get('/parOuImpar', (req, res) => {
+    //req.body.numero -> Recupera o valor do campo numero do formulário
+    //req.query.numero -> Recupera o valor do campo numero da URL
+    //req.params.numero -> Recupera o valor do campo numero da URL
+    const par = parseInt(req.query.numero) % 2 === 0;
+    res.send({
+        resultado: par ? 'par' : 'impar'
+    });
+});
+
 
 app.listen(3000, () => {
     console.log(`Server is running on http://localhost:3000`);
