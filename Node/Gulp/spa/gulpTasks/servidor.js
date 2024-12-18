@@ -1,22 +1,25 @@
-const gulp = require("gulp");
-const uglifycss = require("gulp-uglifycss");
-const concat = require("gulp-concat");
+const gulp = require('gulp')
+const webserver = require('gulp-webserver')
+const watch = require('gulp-watch')
 
-function depsCSS() {
-  return gulp
-    .src("node_modules/font-awesome/css/font-awesome.css")
-    .pipe(uglifycss({ uglyComments: false }))
-    .pipe(concat("deps.min.css"))
-    .pipe(gulp.dest("build/assets/css"));
+function servidor(cb) {
+    return gulp.src('build')
+        .pipe(webserver({
+            port: 8080,
+            open: true,
+            livereload: true,
+        }))
 }
 
-function depsFonts() {
-  return gulp
-    .src("node_modules/font-awesome/fonts/*.*")
-    .pipe(gulp.dest("build/assets/fonts"));
+function monitorarArquivos(cb) {
+    watch('src/**/*.html', () => gulp.series('appHTML')())
+    watch('src/**/*.scss', () => gulp.series('appCSS')())
+    watch('src/**/*.js', () => gulp.series('appJS')())
+    watch('src/assets/imgs/**/*.*', () => gulp.series('appIMG')())
+    return cb()
 }
 
 module.exports = {
-  depsCSS,
-  depsFonts,
-};
+    monitorarArquivos,
+    servidor
+}
