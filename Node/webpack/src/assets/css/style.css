@@ -1,3 +1,7 @@
 body {
     background-color: #d18383;
+    background-image: url('../img/github.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100%;
 }
