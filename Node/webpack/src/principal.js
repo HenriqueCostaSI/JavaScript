@@ -1,6 +1,5 @@
-import Pessoa from "./pessoa";
-import "./modules/moduloA";
-import './assets/css/style.css';
+import Pessoa from './pessoa'
+import './assets'
 
-const atendente = new Pessoa();
-console.log(atendente.cumprimentar());
+const atendente = new Pessoa
+console.log(atendente.cumprimentar())
