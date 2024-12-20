@@ -10,8 +10,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "bootstrap": "4.1.1",
-    "http-server": "0.11.1",
-    "jquery": "^3.7.1"
+    "bootstrap": "^5.3.3",
+    "http-server": "^14.1.1",
+    "jquery": "^3.7.1",
+    "popper": "^1.0.1"
   }
 }
